@@ -10,12 +10,13 @@ COPY . /var/www/html
 
 COPY ./conf/nginx/nginx-site.conf /etc/nginx/sites-available/default
 
-RUN curl -sS https://getcomposer.org/installer | php && \
-    mv composer.phar /usr/local/bin/composer && \
-    composer install
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+RUN composer install || cat /tmp/composer.log
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 CMD ["supervisord", "-n"]
 
 RUN composer require laravel/sanctum
+
