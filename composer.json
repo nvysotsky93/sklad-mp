@@ -10,7 +10,9 @@
     "require": {
         "php": "^8.0",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "laravel/inertia": "^0.6.1",
+        "inertiajs/inertia-laravel": "^0.6.5"
     },
     "require-dev": {
         "filp/whoops": "^2.15",
