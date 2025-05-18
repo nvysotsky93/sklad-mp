@@ -17,3 +17,5 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 CMD ["supervisord", "-n"]
+
+RUN composer require laravel/sanctum
