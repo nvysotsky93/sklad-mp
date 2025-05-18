@@ -19,7 +19,4 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/migrate', function () {
-    \Illuminate\Support\Facades\Artisan::call('migrate --force');
-    return 'Migrated!';
-});
+
