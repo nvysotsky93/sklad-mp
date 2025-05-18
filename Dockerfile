@@ -14,6 +14,8 @@ COPY composer.json composer.lock ./
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
 
+ENV COMPOSER_MEMORY_LIMIT=-1
+
 # Копируем проект
 COPY . .
 
