@@ -4,7 +4,7 @@ WORKDIR /var/www/html
 
 RUN apt-get update && apt-get install -y \
     libzip-dev zip unzip git curl nginx supervisor \
-    && docker-php-ext-install pdo pdo_mysql zip
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql zip
 
 COPY . /var/www/html
 
