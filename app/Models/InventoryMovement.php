@@ -11,3 +11,8 @@ class InventoryMovement extends Model
 
     protected $fillable = ['product_id', 'type', 'quantity', 'description'];
 }
+
+public function product()
+{
+    return $this->belongsTo(\App\Models\Product::class);
+}
