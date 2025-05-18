@@ -24,5 +24,11 @@
     },
     "resolutions": {
         "laravel-mix/webpack/terser-webpack-plugin/cacache/ssri": "^6.0.2"
+    },
+
+    "dependencies": {
+        "@inertiajs/inertia": "^1.0.0",
+        "@inertiajs/inertia-vue3": "^1.0.0",
+        "vue": "^3.2.0"
     }
 }
