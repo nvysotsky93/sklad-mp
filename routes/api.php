@@ -17,3 +17,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('products', ProductController::class);
     Route::apiResource('inventory-movements', InventoryMovementController::class);
 });
+
+use App\Http\Controllers\API\MarketplaceController;
+
+Route::get('/marketplace/accounts', [MarketplaceController::class, 'index']);
+Route::post('/marketplace/accounts', [MarketplaceController::class, 'store']);
+Route::get('/marketplace/wb/orders', [MarketplaceController::class, 'syncWbOrders']);
