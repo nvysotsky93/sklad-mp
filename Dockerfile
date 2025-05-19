@@ -16,7 +16,8 @@ WORKDIR /var/www/html
 # Копирование всех файлов проекта
 COPY . .
 
-# Установка зависимостей Laravel
+# Удаление lock-файла и установка зависимостей Laravel
+RUN rm -f composer.lock
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Установка JS-зависимостей и сборка
