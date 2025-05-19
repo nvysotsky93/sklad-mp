@@ -7,7 +7,6 @@
   "require": {
     "php": "^8.1",
     "laravel/framework": "^11.0",
-    "laravel/tinker": "^2.9",
     "inertiajs/inertia-laravel": "^1.0",
     "laravel/sanctum": "^4.0"
   },
@@ -22,11 +21,6 @@
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "sort-packages": true
-  },
-  "extra": {
-    "laravel": {
-      "dont-discover": []
-    }
   },
   "autoload": {
     "psr-4": {
@@ -46,7 +40,6 @@
   "prefer-stable": true,
   "scripts": {
     "post-autoload-dump": [
-      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php artisan package:discover --ansi"
     ],
     "post-root-package-install": [
@@ -54,9 +47,6 @@
     ],
     "post-create-project-cmd": [
       "@php artisan key:generate --ansi"
-    ],
-    "post-update-cmd": [
-      "@php artisan inertia:middleware"
     ]
   }
 }
