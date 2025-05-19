@@ -1,8 +1,5 @@
 FROM php:8.2-fpm
 
-# Рабочая директория
-WORKDIR /var/www/html
-
 # Установка системных зависимостей и PHP-расширений
 RUN apt-get update && apt-get install -y \
     libzip-dev zip unzip git curl nginx supervisor libpq-dev \
@@ -12,6 +9,9 @@ RUN apt-get update && apt-get install -y \
 # Установка Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
+
+# Рабочая директория
+WORKDIR /var/www/html
 
 # Копирование всех файлов проекта
 COPY . .
@@ -25,7 +25,7 @@ RUN npm install && npm run build
 # Права на storage и bootstrap/cache
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Nginx + supervisor (настройки должны быть добавлены отдельно)
+# Копирование конфигураций Nginx и Supervisor
 COPY ./conf/nginx/nginx-site.conf /etc/nginx/sites-available/default
 COPY supervisord.conf /etc/supervisord.conf
 
