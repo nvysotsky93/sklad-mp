@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn () => Inertia::render('Welcome'));
-Route::get('/orders', fn () => Inertia::render('Orders', ['orders' => []]));
-Route::get('/orders/sync', function () {
-    // Здесь позже подключим синхронизацию заказов
-    return redirect('/orders');
+Route::get('/', function () {
+    return Inertia::render('Welcome');
 });
